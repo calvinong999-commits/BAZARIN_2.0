@@ -74,14 +74,14 @@ export function Landing() {
         <div className="absolute top-10 right-0 w-[400px] h-[400px] bg-indigo-500/8 rounded-full blur-3xl pointer-events-none" />
         
         <div className="relative">
-          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-100 to-indigo-100 text-blue-700 text-sm font-bold px-5 py-2 rounded-full border border-blue-200 mb-8 shadow-sm">
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-100 to-indigo-100 dark:from-blue-900/40 dark:to-indigo-900/40 text-blue-700 dark:text-blue-300 text-sm font-bold px-5 py-2 rounded-full border border-blue-200 dark:border-blue-800 mb-8 shadow-sm">
             <span className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></span>
             🚀 Platform Event UMKM #1 Indonesia
           </div>
-          <h1 className="text-5xl lg:text-7xl font-black text-slate-900 leading-[1.1] mb-6">
+          <h1 className="text-5xl lg:text-7xl font-black text-slate-900 dark:text-white leading-[1.1] mb-6">
             Hubungkan <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">UMKM</span><br />dengan Event Terbaik
           </h1>
-          <p className="text-slate-500 text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+          <p className="text-slate-500 dark:text-slate-400 text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
             BZR menyederhanakan pendaftaran tenant untuk bazaar, expo, festival, dan acara sekolah/kampus. Cepat, mudah, dan terpercaya.
           </p>
           <div className="flex items-center justify-center gap-4 flex-wrap">
@@ -110,15 +110,15 @@ export function Landing() {
       {/* Features */}
       <section className="max-w-6xl mx-auto px-5 py-20">
         <div className="text-center mb-14">
-          <h2 className="text-3xl font-bold text-slate-900">Semua yang Kamu Butuhkan</h2>
-          <p className="text-slate-500 mt-3 text-lg">Fitur lengkap untuk host dan UMKM</p>
+          <h2 className="text-3xl font-bold text-slate-900 dark:text-white">Semua yang Kamu Butuhkan</h2>
+          <p className="text-slate-500 dark:text-slate-400 mt-3 text-lg">Fitur lengkap untuk host dan UMKM</p>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {features.map(f => (
-            <div key={f.title} className="bg-white/70 backdrop-blur-xl rounded-3xl p-6 border border-white/80 shadow-lg hover:shadow-xl transition-all hover:-translate-y-1.5 group">
+            <div key={f.title} className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-xl rounded-3xl p-6 border border-white/80 dark:border-slate-700 shadow-lg hover:shadow-xl transition-all hover:-translate-y-1.5 group">
               <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl flex items-center justify-center text-3xl shadow-lg shadow-blue-300/30 mb-5 group-hover:scale-110 transition-transform duration-300">{f.icon}</div>
-              <h3 className="font-bold text-slate-800 mb-2 text-lg">{f.title}</h3>
-              <p className="text-slate-500 text-sm leading-relaxed">{f.sub}</p>
+              <h3 className="font-bold text-slate-800 dark:text-slate-100 mb-2 text-lg">{f.title}</h3>
+              <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">{f.sub}</p>
             </div>
           ))}
         </div>
@@ -147,18 +147,18 @@ export function Landing() {
 
       {/* Testimonials */}
       <section className="max-w-6xl mx-auto px-5 py-20">
-        <h2 className="text-3xl font-bold text-slate-900 text-center mb-12">Kata Mereka</h2>
+        <h2 className="text-3xl font-bold text-slate-900 dark:text-white text-center mb-12">Kata Mereka</h2>
         <div className="grid sm:grid-cols-3 gap-5">
           {testimonials.map(t => (
-            <div key={t.name} className="bg-white/70 backdrop-blur-xl rounded-3xl p-6 border border-white/80 shadow-lg hover:shadow-xl transition-all">
+            <div key={t.name} className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-xl rounded-3xl p-6 border border-white/80 dark:border-slate-700 shadow-lg hover:shadow-xl transition-all">
               <div className="flex gap-1 mb-4">
                 {[1,2,3,4,5].map(i => <span key={i} className="text-amber-400 text-sm">★</span>)}
               </div>
-              <p className="text-slate-600 text-sm leading-relaxed mb-5">"{t.text}"</p>
+              <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-5">"{t.text}"</p>
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-full flex items-center justify-center text-xl">{t.avatar}</div>
+                <div className="w-10 h-10 bg-gradient-to-br from-blue-100 to-indigo-100 dark:from-blue-900 dark:to-indigo-900 rounded-full flex items-center justify-center text-xl">{t.avatar}</div>
                 <div>
-                  <p className="font-bold text-slate-800 text-sm">{t.name}</p>
+                  <p className="font-bold text-slate-800 dark:text-slate-100 text-sm">{t.name}</p>
                   <p className="text-slate-400 text-xs">{t.biz}</p>
                 </div>
               </div>

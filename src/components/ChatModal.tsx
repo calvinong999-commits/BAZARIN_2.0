@@ -99,7 +99,6 @@ export function ChatModal({
   async function handleSend(e: React.FormEvent) {
     e.preventDefault()
     if (!inputText.trim() || !user) return
-
     setSending(true)
     const msg = inputText.trim()
     setInputText('')
@@ -115,6 +114,7 @@ export function ChatModal({
 
     if (error) {
       console.error('Error sending message:', error)
+      alert(`Gagal mengirim pesan: ${error.message || 'Cek koneksi/RLS'}`)
       setInputText(msg)
     } else if (data) {
       setMessages((prev) => {
@@ -195,7 +195,6 @@ export function ChatModal({
               type="text"
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
-              onKeyDown={(e) => { if (e.key === 'Enter' && !e.shiftKey) handleSend(e as any) }}
               placeholder="Tulis pesan..."
               className="flex-1 bg-slate-100 border-none outline-none focus:ring-2 focus:ring-blue-500/20 rounded-full px-4 py-2.5 text-sm transition-all"
             />

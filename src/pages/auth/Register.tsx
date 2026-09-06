@@ -106,7 +106,7 @@ export function Register() {
   async function handleVerifyOtp(e: React.FormEvent) {
     e.preventDefault()
     setError('')
-    if (!otp || otp.length < 6) { setError('Masukkan kode OTP yang lengkap.'); return }
+    if (!otp || otp.length < 6) { setError('Masukkan kode OTP yang lengkap dari email.'); return }
     setLoading(true)
 
     const { data, error: verifyError } = await supabase.auth.verifyOtp({
@@ -267,7 +267,7 @@ export function Register() {
                 <div>
                   <p className="text-sm font-semibold text-slate-800 dark:text-slate-100">Cek email kamu!</p>
                   <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
-                    Kode OTP 6-digit telah dikirim ke <strong className="text-blue-600 dark:text-blue-400">{form.email}</strong>
+                    Kode OTP telah dikirim ke <strong className="text-blue-600 dark:text-blue-400">{form.email}</strong>
                   </p>
                   <p className="text-xs text-slate-400 dark:text-slate-500 mt-1">Cek folder Spam/Junk jika tidak ditemukan di Inbox.</p>
                 </div>
@@ -280,7 +280,7 @@ export function Register() {
                   type="text"
                   inputMode="numeric"
                   pattern="[0-9]*"
-                  placeholder="_ _ _ _ _ _"
+                  placeholder="_ _ _ _ _ _ _ _"
                   value={otp}
                   onChange={e => setOtp(e.target.value.replace(/[^0-9]/g, '').slice(0, 8))}
                   maxLength={8}

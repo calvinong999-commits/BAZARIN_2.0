@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { supabase } from '../../lib/supabase'
 import { useAuth } from '../../context/AuthContext'
-import { StatCard, Card, Badge, Empty, Spinner, StatusBadge } from '../../components/ui'
+import { Card, Empty, Spinner, StatCard, StatusBadge } from '../../components/ui'
+import { SponsorBanner } from '../../components/SponsorBanner'
 import type { Event, Registration } from '../../lib/types'
 
 export function HostDashboard() {
@@ -86,6 +87,11 @@ export function HostDashboard() {
           </div>
         )}
       </Card>
+
+      {/* Sponsor Banner di bagian bawah */}
+      <div className="pt-8">
+        <SponsorBanner />
+      </div>
     </div>
   )
 }

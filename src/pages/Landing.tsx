@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import { Button } from '../components/ui'
+import { SponsorBanner } from '../components/SponsorBanner'
 
 export function Landing() {
   const navigate = useNavigate()
@@ -141,64 +142,7 @@ export function Landing() {
       </section>
 
       {/* ─── Sponsor Section ─────────────────────────────────────────────────── */}
-      <section className="border-t border-b border-slate-100 bg-white/60 backdrop-blur-sm py-14">
-        <div className="max-w-4xl mx-auto px-5">
-          <p className="text-center text-xs font-bold text-slate-400 uppercase tracking-widest mb-10">Didukung Oleh</p>
-          <div className="flex items-center justify-center gap-12 flex-wrap">
-            
-            {/* Crystalin Logo */}
-            <div className="group flex items-center gap-3 hover:scale-105 transition-transform duration-300 cursor-default">
-              <div className="relative w-12 h-12 rounded-2xl overflow-hidden shadow-lg shadow-cyan-200/50 bg-gradient-to-br from-cyan-400 via-blue-500 to-cyan-600 flex items-center justify-center">
-                <svg viewBox="0 0 32 32" fill="none" className="w-8 h-8">
-                  <polygon points="16,2 28,9 28,23 16,30 4,23 4,9" fill="white" fillOpacity="0.15" stroke="white" strokeWidth="1.5"/>
-                  <polygon points="16,6 25,11 25,21 16,26 7,21 7,11" fill="white" fillOpacity="0.2"/>
-                  <circle cx="16" cy="16" r="5" fill="white" fillOpacity="0.9"/>
-                  <circle cx="16" cy="16" r="2.5" fill="rgba(6,182,212,1)"/>
-                </svg>
-              </div>
-              <div>
-                <div className="font-black text-xl tracking-wide">
-                  <span className="text-cyan-500">crysta</span><span className="text-blue-600">lin</span>
-                </div>
-                <div className="text-[9px] font-semibold text-slate-400 uppercase tracking-widest -mt-0.5">Mountain Mineral Water</div>
-              </div>
-            </div>
-
-            {/* Divider */}
-            <div className="h-12 w-px bg-slate-200 hidden sm:block" />
-
-            {/* Good Day Logo */}
-            <div className="group flex items-center gap-3 hover:scale-105 transition-transform duration-300 cursor-default">
-              <div className="relative w-12 h-12 rounded-2xl overflow-hidden shadow-lg shadow-orange-200/50 bg-gradient-to-br from-amber-400 via-orange-500 to-red-500 flex items-center justify-center">
-                <svg viewBox="0 0 32 32" fill="none" className="w-8 h-8">
-                  <circle cx="16" cy="16" r="12" fill="white" fillOpacity="0.15"/>
-                  {/* Sun rays */}
-                  <line x1="16" y1="4" x2="16" y2="7" stroke="white" strokeWidth="2" strokeLinecap="round"/>
-                  <line x1="16" y1="25" x2="16" y2="28" stroke="white" strokeWidth="2" strokeLinecap="round"/>
-                  <line x1="4" y1="16" x2="7" y2="16" stroke="white" strokeWidth="2" strokeLinecap="round"/>
-                  <line x1="25" y1="16" x2="28" y2="16" stroke="white" strokeWidth="2" strokeLinecap="round"/>
-                  <line x1="7.5" y1="7.5" x2="9.6" y2="9.6" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
-                  <line x1="22.4" y1="22.4" x2="24.5" y2="24.5" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
-                  <line x1="24.5" y1="7.5" x2="22.4" y2="9.6" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
-                  <line x1="9.6" y1="22.4" x2="7.5" y2="24.5" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
-                  <circle cx="16" cy="16" r="5.5" fill="white" fillOpacity="0.9"/>
-                  <circle cx="16" cy="16" r="3" fill="rgba(249,115,22,1)"/>
-                </svg>
-              </div>
-              <div>
-                <div className="font-black text-xl tracking-wide">
-                  <span className="text-amber-500">Good</span><span className="text-orange-600"> Day</span>
-                </div>
-                <div className="text-[9px] font-semibold text-slate-400 uppercase tracking-widest -mt-0.5">Instant Coffee</div>
-              </div>
-            </div>
-
-          </div>
-          <p className="text-center text-xs text-slate-400 mt-8">
-            Terima kasih atas dukungan para sponsor dalam mewujudkan ekosistem UMKM yang lebih kuat 💙
-          </p>
-        </div>
-      </section>
+      <SponsorBanner />
 
       {/* CTA */}
       <section className="bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-700 py-20 text-center relative overflow-hidden">

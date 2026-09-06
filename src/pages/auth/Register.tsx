@@ -31,7 +31,7 @@ export function Register() {
     if (form.password.length < 8) { setError('Password minimal 8 karakter.'); return }
     setLoading(true)
 
-    const { error: signUpError } = await supabase.auth.signUp({
+    const { data, error: signUpError } = await supabase.auth.signUp({
       email: form.email,
       password: form.password,
       options: {
@@ -54,9 +54,27 @@ export function Register() {
       return
     }
 
-    setLoading(false)
-    setStep(3) // Lanjut ke OTP
-    startResendCooldown()
+    if (data?.session) {
+      // Jika Confirm Email dimatikan di Supabase, user akan langsung login
+      await supabase.from('profiles').upsert({
+        id: data.session.user.id,
+        role,
+        full_name: form.fullName,
+        business_name: form.businessName || null,
+        phone: form.phone || null,
+        city: form.city || null,
+      })
+      
+      setDone(true)
+      setTimeout(() => {
+        window.location.href = '/' // Force reload to update AuthContext
+      }, 1500)
+    } else {
+      // Jika Confirm Email aktif, lanjut ke langkah OTP
+      setLoading(false)
+      setStep(3)
+      startResendCooldown()
+    }
   }
 
   function startResendCooldown() {
@@ -88,7 +106,7 @@ export function Register() {
   async function handleVerifyOtp(e: React.FormEvent) {
     e.preventDefault()
     setError('')
-    if (!otp || otp.length < 6) { setError('Masukkan kode OTP 6 digit.'); return }
+    if (!otp || otp.length < 6) { setError('Masukkan kode OTP yang lengkap.'); return }
     setLoading(true)
 
     const { data, error: verifyError } = await supabase.auth.verifyOtp({
@@ -264,8 +282,8 @@ export function Register() {
                   pattern="[0-9]*"
                   placeholder="_ _ _ _ _ _"
                   value={otp}
-                  onChange={e => setOtp(e.target.value.replace(/[^0-9]/g, '').slice(0, 6))}
-                  maxLength={6}
+                  onChange={e => setOtp(e.target.value.replace(/[^0-9]/g, '').slice(0, 8))}
+                  maxLength={8}
                   required
                   className="w-full bg-white/70 dark:bg-slate-800/80 backdrop-blur border border-slate-200 dark:border-slate-600 rounded-xl py-4 px-4 text-slate-800 dark:text-slate-100 text-2xl font-mono tracking-[0.5em] text-center focus:outline-none focus:ring-2 focus:ring-blue-400/50 dark:focus:ring-blue-500/50 focus:border-blue-400 dark:focus:border-blue-500 transition-all"
                 />

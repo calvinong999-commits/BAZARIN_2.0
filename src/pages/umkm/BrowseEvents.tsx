@@ -4,6 +4,7 @@ import { useAuth } from '../../context/AuthContext'
 import { Badge, Button, Card, Empty, Input, Modal, Select, Spinner, Textarea } from '../../components/ui'
 import { ChatModal } from '../../components/ChatModal'
 import { SecureDocumentViewer } from '../../components/SecureDocumentViewer'
+import { SponsorBanner } from '../../components/SponsorBanner'
 import type { Category, Event, Stand } from '../../lib/types'
 
 export function BrowseEvents() {
@@ -518,6 +519,11 @@ export function BrowseEvents() {
           </button>
         </div>
       )}
+
+      {/* Sponsor Banner di bawah */}
+      <div className="pt-8 pb-4">
+        <SponsorBanner />
+      </div>
     </div>
   )
 }
